@@ -10,6 +10,7 @@ This is for all the folks setting up OPNSense on a miniPC with Intel WiFi - spec
 - A text editor that doesn't screw with line ending formats
 
 ## How do you know if you have an iwlwifi problem?
+![OPNSense iwlwifi error messages due to missing iwlwifi firmware.](https://github.com/korgano/setup_wpa/blob/main/Docs/cyber-proj-tfb08a.jpg?raw=true)
 You will typically see a lot of messages saying iwlwifi# cannot find a firmware image in OPNSense 25.1.8+, since they stopped including it in their build process.
 Even if you miss it at boot, just restart your services and look for the messages to come in a big block.
 
@@ -36,6 +37,7 @@ Alternatively, go to the Shell and use the following command to get the list:
 12. If you didn't edit in the login credentials before, edit them in either before or after you copy the script.
 13. Execute the script with command `sh <path>/setup_wpa.sh`.
 14. You should see the following output: 
+![OPNSense rebooting wpa_supplicant and initializing properly after script run.](https://github.com/korgano/setup_wpa/blob/main/Docs/cyber-proj-tfb25.jpg?raw=true)
 
 If you had an assigned IP to the WiFi interface, from prior to an upgrade to 25.1.8+ or 25.7+, your connection should reestablish immediately.
 
@@ -46,6 +48,7 @@ This is for all the folks setting up dual ethernet N100 boxes as Transparent Fil
 3. Go to `Rules>[Name of WiFi]`.
 4. Make a rule allowing all traffic in from your router's IP address.
 5. Create a rule allowing HTTPS web traffic with the following settings: 
+![OPNSense rule settings to allow HTTPS connections into the iwlwifi connection.](https://github.com/korgano/setup_wpa/blob/main/Docs/opnsense-config-02.png?raw=true)
 
 Apply the state type setting (`None`) to your router access rule as well.
 
